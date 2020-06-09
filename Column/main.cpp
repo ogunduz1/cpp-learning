@@ -15,7 +15,7 @@ int main(){
 	cout<<"adres of c2"<<c2.getData()<<endl;
 	(c1.sum(c2)).display();	
 	(c1.product(c2)).display();
-	cout<<"Average of column: "<<c1.avg()<<endl;*/
+	cout<<"Average of column: "<<c1.avg()<<endl;
 	srand(time(NULL));
 	Column c3(4);
 	Column c4(4);
@@ -26,7 +26,23 @@ int main(){
 	c3.display();
 	c4.display();
 	(c3+c4).display();
-	(c3+10).display();
+	(c3+10).display();*/
+	srand(time(NULL));
+	Column c5(5);
+	for(int i=0;i<4;i++){
+		c5.setValue(i,rand()%50);
+	}
+	c5.display();
+	Column c6;
+	c6=c5;//overloaded = 
+	c6.display();
+	Column c7=c5;
+	c7.display();
+	c7=c6=c5;
+	c5.display();
+	c6.display();
+	c7.display();
+
 	return 0;
 }
 

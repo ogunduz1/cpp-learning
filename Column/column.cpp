@@ -10,6 +10,7 @@
 		data=new int[size];
 		for(int i=0;i<size;i++)
 			data[i]=c.data[i];
+		//*this = c;//bu windowsda calıştı ama burada core dump(invalid pointer) verdi
 		std::cout<<"Copy Constructor runned \n";
 	}
 	Column::~Column(){
@@ -72,5 +73,18 @@
 		for(int i=0;i<this->size;i++)
 			temp.data[i]=this->data[i]+x;
 		return temp;
+	}
+	Column& Column::operator = (const Column& c){
+		delete[] data;//ilk tanımlanan pointerı serbest bırakıyor
+		size = c.size;
+		data=new int[size];
+		for(int i=0;i<size;i++)
+			data[i]=c.data[i];
+		return *this;
+	}
+	int& Column operator [] (int indis){
+		if(indis >=0 && indis<boyut){
+			return data[indis];
+		}
 	}
 #endif

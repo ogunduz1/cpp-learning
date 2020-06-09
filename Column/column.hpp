@@ -18,6 +18,8 @@ public:
 	double avg()const;
 	Column operator + (const Column&)const;
 	Column operator + (const int)const;
+	Column& operator = (const Column&);//class da pointer eleman varsa = overload zorunlu
+	int& Column operator [] (int);
 };
 #include "column.cpp"
 #endif
