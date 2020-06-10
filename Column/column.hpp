@@ -4,6 +4,9 @@ class Column{
 private:
 	int* data;
 	int size;
+
+	void incSize (int);
+	void decSize (int);
 public:
 	Column(int);
 	Column (const Column& c);
@@ -19,7 +22,14 @@ public:
 	Column operator + (const Column&)const;
 	Column operator + (const int)const;
 	Column& operator = (const Column&);//class da pointer eleman varsa = overload zorunlu
-	int& Column operator [] (int);
+//	int& Column operator [] (int);
+	void operator () () const;
+	void operator () (int) const;
+	void operator () (int,int);
+	void operator ++ (int);//postfix
+	void operator ++ ();//prefix
+	void operator -- (int);
+	void operator -- ();
 };
 #include "column.cpp"
 #endif

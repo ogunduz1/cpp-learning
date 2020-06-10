@@ -82,9 +82,46 @@
 			data[i]=c.data[i];
 		return *this;
 	}
-	int& Column operator [] (int indis){
+	/*int& Column operator [] (int indis){
 		if(indis >=0 && indis<boyut){
 			return data[indis];
 		}
+	}*/
+	void Column::operator () () const{
+		for(int i=0; i<size;i++)
+			std::cout<<data[i]<<" ";
+		std::cout<<std::endl;
+	}							
+	void Column::operator () (int j) const{
+		for(int i=0; i<j;i++)
+			std::cout<<data[i]<<" ";
+		std::cout<<std::endl;
+	}
+	void Column::operator () (int i ,int j) {
+		int temp;
+		temp=data[i];
+		data[i]=data[j];
+		data[j]=temp;
+	}
+	void Column::incSize(int value){
+		for(int i=0;i<size;i++)
+			data[i]+=value;
+	}
+	void Column::operator ++ (int){
+		incSize(1);
+	}
+	void Column::operator ++ (){
+		incSize(2);
+	}
+	void Column::decSize(int value){
+		for(int i=0;i<size;i++){
+			data[i]-=value;
+		}
+	}
+	void Column::operator -- (int){
+		decSize(1);
+	}
+	void Column::operator -- () {
+		decSize(2);
 	}
 #endif
